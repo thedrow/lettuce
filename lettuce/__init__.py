@@ -39,6 +39,13 @@ from lettuce.plugins import xunit_output
 
 from lettuce import exceptions
 
+if os.name == 'nt':
+    try:
+        from colorama import init
+        init()
+    except ImportError:
+        pass
+
 __all__ = [
     'after',
     'before',
